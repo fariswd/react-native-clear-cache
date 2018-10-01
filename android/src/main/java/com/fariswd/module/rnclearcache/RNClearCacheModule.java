@@ -1,5 +1,6 @@
 package com.fariswd.module.rnclearcache;
 
+import android.content.Context;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -26,7 +27,7 @@ public class RNClearCacheModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void clear() {
-        deleteCache(getApplicationContext());
+        deleteCache(getReactApplicationContext());
     }
 
     public static void deleteCache(Context context) {
