@@ -50,5 +50,18 @@ public class MainApplication extends MultiDexApplication {
 }
 ```
 
+## Use module
+```js
+import ClearCache from 'react-native-clear-cache'
+
+ClearCache.clear(status => {
+  if (!status) {
+    console.log('error')
+    return
+  }
+  console.log('success')
+})
+```
+
 fariswd 2018  
 :rocket:
