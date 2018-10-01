@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
 
 import java.io.File;
 
@@ -21,20 +22,25 @@ public class RNClearCacheModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void show(String message) {
+    public void show(String message, Callback callback) {
         Toast.makeText(getReactApplicationContext(), message, Toast.LENGTH_LONG).show();
+        callback.invoke("success");
     }
 
     @ReactMethod
-    public void clear() {
-        deleteCache(getReactApplicationContext());
+    public void clear(Callback callback) {
+        deleteCache(getReactApplicationContext(), callback);
     }
 
-    public static void deleteCache(Context context) {
+    public static void deleteCache(Context context, Callback callback) {
         try {
             File dir = context.getCacheDir();
             deleteDir(dir);
-        } catch (Exception e) { e.printStackTrace();}
+            callback.invoke(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            callback.invoke(false);
+        }
     }
 
     public static boolean deleteDir(File dir) {
