@@ -1,0 +1,24 @@
+{
+  "name": "react-native-clear-cache",
+  "version": "1.0.0",
+  "private": true,
+  "description": "clear cache android for react native",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fariswd/react-native-clear-cache.git"
+  },
+  "keywords": [
+    "clear",
+    "cache",
+    "android",
+    "react",
+    "native"
+  ],
+  "author": "Faris Widyantho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fariswd/react-native-clear-cache/issues"
+  },
+  "homepage": "https://github.com/fariswd/react-native-clear-cache#readme"
+}
